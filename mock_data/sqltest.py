@@ -1,5 +1,7 @@
 import mysql.connector
-import sys
+
+
+# import sys
 
 def executeScriptsFromFile(filename):
     fd = open(filename, 'r')
@@ -10,10 +12,9 @@ def executeScriptsFromFile(filename):
     for command in sqlCommands:
         try:
             if command.strip() != '':
-                cursor.execute(command) 
+                cursor.execute(command)
         except OSError as msg:
-            print("Command skipped: "+ msg)
-
+            print("Command skipped: " + msg)
 
 
 connection = mysql.connector.connect(
