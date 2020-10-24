@@ -2,6 +2,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8475.svg)](https://doi.org/10.5281/zenodo.8475)
 ![GitHub last commit](https://img.shields.io/github/last-commit/AmitMandliya/TeamFormationAssistant)
 ![GitHub repo size](https://img.shields.io/github/repo-size/AmitMandliya/TeamFormationAssistant)
+[![Coverage Status](https://coveralls.io/repos/github/AmitMandliya/TeamFormationAssistant/badge.svg?branch=master)](https://coveralls.io/github/AmitMandliya/TeamFormationAssistant?branch=master)
 # Team Formation Assistant
 ## Problem Statement              
 Build an assistant which will take the project requirements, team members
