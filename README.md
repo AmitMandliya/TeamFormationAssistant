@@ -2,7 +2,13 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8475.svg)](https://doi.org/10.5281/zenodo.8475)
 ![GitHub last commit](https://img.shields.io/github/last-commit/AmitMandliya/TeamFormationAssistant)
 ![GitHub repo size](https://img.shields.io/github/repo-size/AmitMandliya/TeamFormationAssistant)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](http://ansicolortags.readthedocs.io/?badge=latest)
+![GitHub language count](https://img.shields.io/github/languages/count/AmitMandliya/TeamFormationAssistant?style=flat-square)
+![GitHub Hacktoberfest combined status](https://img.shields.io/github/hacktoberfest/2020/AmitMandliya/TeamFormationAssistant)
+
 # Team Formation Assistant
+
 ## Problem Statement              
 Build an assistant which will take the project requirements, team members
 availability, skill level, tools preferred, etc. as input and assigns the members for
