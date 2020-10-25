@@ -1,7 +1,3 @@
-// Generate mock data for members, projects, and requirements
-// Example run:
-//  node mock_data.js <numMembers> <numProjects>
-
 const faker = require("faker");
 const sampleSize = require("lodash.samplesize");
 const mysql = require("mysql2/promise");
@@ -23,32 +19,24 @@ const AVAILABLE_HOURS = [10, 20, 40];
 const BUDGET = [1000, 5000, 20000, 50000, 100000];
 const WEIGHTS = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
-// Parse command line args
-if (process.argv.length !== 4) {
-    console.error(
-        "Please provide the number of members and projects you would like to generate."
-    );
-}
-const numMembers = 25;
-const numProjects = 40;
-if (isNaN(numMembers) || isNaN(numProjects)) {
-    console.error("The number of members and projects must be numeric.");
-}
+
+const numMembers = 5;
+const numProjects = 3;
 
 main();
 
 async function main() {
     // establish mysql server connection
     const connection = await mysql.createConnection({
-        host: "sefall2021.cosnmrdyk6wi.us-east-2.rds.amazonaws.com",
+        host: "database",
+        port: "3306",
         database: "teamformationassistant",
-        user: "root",
-        password: "SEFall2021",
+        user: "dbuser",
+        password: "dbuserpwd",
         multipleStatements: true,
+    }).catch((err) => {
+        console.log(err)
     });
-
-    // drop and recreate databases if they already exist, using stored procedure
-    await connection.query("CALL reset()");
 
     // Generate and insert mock members
     for (let i = 0; i < numMembers; i++) {

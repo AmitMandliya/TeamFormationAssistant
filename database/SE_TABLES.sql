@@ -7,12 +7,12 @@ DROP TABLE IF EXISTS Requirements;
 
 CREATE TABLE Member(
 	MemberId				INT NOT NULL AUTO_INCREMENT,
-	MemberName					VARCHAR(30) NOT NULL, 
+	MemberName					VARCHAR(255) NOT NULL, 
 	DOB						DATE,
-	Languages				VARCHAR(100) NOT NULL,
+	Languages				VARCHAR(255) NOT NULL,
 	IsAssigned				INT,
 	HourlyRate				FLOAT,
-	MemberRole					VARCHAR(20),
+	MemberRole					VARCHAR(255),
 	Experience				INT,
 	SkillScore				INT,
 	AvailableHoursPerWeek	INT,
@@ -21,11 +21,11 @@ CREATE TABLE Member(
 
 CREATE TABLE Project(
 	ProjectId				INT NOT NULL AUTO_INCREMENT,
-	ProjectName					VARCHAR(30) NOT NULL,
+	ProjectName					VARCHAR(255) NOT NULL,
 	ProjectEndDate					DATE,
 	ProjectTeamSize					INT,
 	Budget					FLOAT,
-	Tools					VARCHAR(100),
+	Tools					VARCHAR(255),
 	IsAssignmentComplete	INT,
 	Priority				INT,
 	PRIMARY KEY (ProjectId)
@@ -33,17 +33,17 @@ CREATE TABLE Project(
 
 CREATE TABLE Team(
 	ProjectId	INT NOT NULL REFERENCES Member(MemberId),
-	ProjectName varchar(30),
+	ProjectName varchar(255),
 	MemberId	INT NOT NULL REFERENCES Project(ProjectId),
-    	MemberName		VARCHAR(30) NOT NULL
+    	MemberName		VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Requirements(
 	JobId					INT NOT NULL AUTO_INCREMENT,
 	ProjectId				INT NOT NULL REFERENCES Project(ProjectId),
-	LanguagePreferred 				VARCHAR(20) NOT NULL,
+	LanguagePreferred 				VARCHAR(255) NOT NULL,
 	Skill					INT NOT NULL,
-	MemberRole					VARCHAR(20),
+	MemberRole					VARCHAR(255),
 	AvailableHoursPerWeek	INT,
 	SkillWeight				INT,
 	ExperienceWeight		INT,

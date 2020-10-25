@@ -209,7 +209,7 @@ class ProjectDetails extends Component {
                             align="center"
                             onChange={this.handleChange}
                             onSubmit= {this.contactSubmit.bind(this)}
-                            action = "http://localhost:3001/ProjectDetails"
+                            action = "http://localhost:8080/ProjectDetails"
                             >
                             <div className="form-row">
                             <div className="form-group col-md-6">

@@ -10,9 +10,10 @@ var mysql = require('mysql');
  
 // create a connection variable
 var con = mysql.createConnection({
-  host: "sefall2021.cosnmrdyk6wi.us-east-2.rds.amazonaws.com", // server ip address
-  user: "root", // user name
-  password: "SEFall2021", // password
+  host: "database", // server ip address
+  port: "3306",
+  user: "dbuser", // user name
+  password: "dbuserpwd", // password
   database: "teamformationassistant" // database name
 });
  
@@ -91,7 +92,7 @@ app.post('/ProjectDetails',(req,res)=>{
 })
 
 app.listen(8080, ()=>{
-  console.log("Port 3001");
+  console.log("Port 8080");
 })
 
 

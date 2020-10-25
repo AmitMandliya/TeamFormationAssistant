@@ -10,10 +10,10 @@ import sys
 import math
 
 connection = mysql.connector.connect(
-host="sefall2021.cosnmrdyk6wi.us-east-2.rds.amazonaws.com",
-database='teamformationassistant',
-user="root",
-password="SEFall2021"
+    host="database",
+    database='teamformationassistant',
+    user="dbuser",
+    password="dbuserpwd"
 )
     
 def persistTeamData(teamData):
@@ -82,7 +82,7 @@ def memberToTeamMapping(MemberData,ProjectData,RequirementsData):
         
        
 
-def main():
+def assignTeam():
     if connection.is_connected():
         Member_Query = pd.read_sql_query(
         '''select * from Member''', connection)
@@ -98,31 +98,3 @@ def main():
         'AvailableHoursPerWeek','SkillWeight','ExperienceWeight','HoursWeight','LanguageWeight','BudgetWeight'])
         teamData = memberToTeamMapping(MemberData,ProjectData,RequirementsData)
         persistTeamData(teamData)
-        
-
-
-if __name__=="__main__": 
-    main() 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-         
-        
-
-
-
-    
-    
-
-
-
