@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot formblock renders 1`] = `
+<formblock
+  counter={1}
+/>
+`;
+
+exports[`snapshot headjs renders 1`] = `
+<headjs
+  counter={1}
+/>
+`;
+
+exports[`snapshot midpart renders 1`] = `
+<midpart
+  counter={1}
+/>
+`;
