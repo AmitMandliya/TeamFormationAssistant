@@ -1,6 +1,7 @@
 const express= require('express');
 const bodyParser=require('body-parser');
 const cors=require('cors');
+const fetch = require("node-fetch");
 
 const app=express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -86,7 +87,7 @@ app.post('/ProjectDetails',(req,res)=>{
 	//res.json('Form received...Thank You for signing up :D');
 	
     //execute the algorithm from here
-	fetch('http://localhost:5000/executeAlgo');
+	fetch('http://localhost:5000/test');
 	
 	return res.redirect('http://localhost:3000/TeamFormationAssistant/ProjectDetails/Success');
 })
