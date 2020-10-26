@@ -25,7 +25,7 @@ connection = mysql.connector.connect(
 # )
     
 def persistTeamData(teamData, conn):
-    ''' Inserts data into the team '''
+    """ Inserts data into the team """
     if conn.is_connected():
         cursor = conn.cursor()
         for row in teamData.index:
@@ -34,7 +34,7 @@ def persistTeamData(teamData, conn):
         conn.commit()
 
 def setEmployeeAssignement(employ, conn):
-    ''' Updates the member details '''
+    """ Updates the member details """
     if conn.is_connected():
         cursor = conn.cursor()
         sql ="UPDATE Member SET IsAssigned= %s WHERE MemberId = %s ;"
@@ -42,7 +42,7 @@ def setEmployeeAssignement(employ, conn):
         conn.commit()
 
 def memberToTeamMapping(MemberData,ProjectData,RequirementsData):
-    ''' maps the members to the team '''
+    """ maps the members to the team """
     jobIDs = RequirementsData['JobId'].tolist()
     employee = MemberData.loc[MemberData['IsAssigned'] == 0]
     employee = employee['MemberId'].tolist()
@@ -94,7 +94,7 @@ def memberToTeamMapping(MemberData,ProjectData,RequirementsData):
        
 
 def assignTeam():
-    ''' assigns teams according to the requirements '''
+    """ assigns teams according to the requirements """
     if connection.is_connected():
         Member_Query = pd.read_sql_query(
         '''select * from Member''', connection)
