@@ -23,7 +23,7 @@ connection = mysql.connector.connect(
 # user="root",
 # password="SEFall2021"
 # )
-    
+
 def persistTeamData(teamData, conn):
     if conn.is_connected():
         cursor = conn.cursor()

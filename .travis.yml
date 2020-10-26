@@ -2,7 +2,23 @@ language: python
 python: 
     - "3.6"
     - "3.7"
+
 install:
     - pip install -r ml-service/ml-server/requirements.txt
+
+services:
+    - docker
+
+before_script: 
+    - pip install docker-compose
+    - docker-compose up --build -d
+
+script:
+    - docker exec -it ml_server bash
+    - python test_TeamAssigner.py
+
+after_script:
+    docker-compose down
+
 script:
     - python -m pytest
