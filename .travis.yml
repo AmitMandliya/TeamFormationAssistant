@@ -2,12 +2,18 @@ language: python
 python: 
     - "3.6"
     - "3.7"
+services:
+    - docker
+    - docker-server
 install:
     - pip install -r ml-service/ml-server/requirements.txt
     - cd frontend/view
     - npm install || true
     - cd ../..
+    - docker built -t blog .
+    - docker run -d -p 127.0.0.0 --name blog blog
 script:
     - python -m pytest
     - cd frontend/view
     - npm run test
+    - docker ps | grep -q blog
