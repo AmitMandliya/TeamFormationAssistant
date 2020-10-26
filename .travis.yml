@@ -16,9 +16,7 @@ before_script:
 script:
     - docker exec -it ml_server bash
     - python test_TeamAssigner.py
+    - python -m pytest
 
 after_script:
     docker-compose down
-
-script:
-    - python -m pytest
