@@ -15,8 +15,11 @@ before_script:
 
 script:
     - docker exec -it ml_server bash
-    - python test_TeamAssigner.py
-    - python -m pytest
+    - docker run -d "python test_TeamAssigner.py"
+    - docker run -d "exit"
 
 after_script:
     docker-compose down
+
+script:
+    - python -m pytest
