@@ -39,6 +39,36 @@ class testTeamAssigner(unittest.TestCase):
     self.assertTrue(mockCursor.execute.called)
     self.assertTrue(mock.is_connected.called)
 
+  def testPersistTeamDataClosedConnection(self):
+    """ Tests the method persistTeamData of TeamAssigner.py for a closed MySQL connection """
+
+    mockTeamDataDf = pd.DataFrame(columns = ["ProjectId", "ProjectName", "MemberId", "MemberName"])
+    mockTeamDataDf = mockTeamDataDf.append({"ProjectId": 3, "ProjectName": 'PQR', 'MemberId': '40', 'MemberName': 'Rick'}, ignore_index=True)
+
+    with patch(target='mysql.connector.connect') as mock:
+      mock.is_connected = MagicMock(return_value = False)
+      TeamAssigner.persistTeamData(mockTeamDataDf, mock)
+      mockCursor = mock.cursor()
+
+    self.assertIsNotNone(mock)
+    self.assertTrue(mock.is_connected.called)
+    self.assertFalse(mock.commit.called)
+    self.assertFalse(mockCursor.execute.called)
+
+  def testSetEmployeeDataClosedConnection(self):
+    """ Tests the method setEmployeeData of TeamAssigner.py for a closed MySQL connection """
+
+    dummyString = "DUMMY SQL QUERY"
+    with patch(target='mysql.connector.connect') as mock:
+      mock.is_connected = MagicMock(return_value = False)
+      TeamAssigner.setEmployeeAssignement(1, mock)
+      mockCursor = mock.cursor()
+    
+    self.assertIsNotNone(mock)
+    self.assertTrue(mock.is_connected.called)
+    self.assertFalse(mock.commit.called)
+    self.assertFalse(mockCursor.execute.called)
+
 if __name__ == '__main__':
   unittest.main()
 
