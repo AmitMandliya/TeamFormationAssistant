@@ -3,20 +3,14 @@ python:
     - "3.6"
     - "3.7"
 
-install:
-    - pip install -r ml-service/ml-server/requirements.txt
-
 services:
     - docker
 
-before_script: 
-    - pip install docker-compose
+before_install:
     - docker-compose up --build -d
-
+    
 script:
-    - docker exec -it ml_server bash
-    - docker run -d "python -m pytest"
-    - docker run -d "exit"
+    - docker exec ml_server python -m pytest
 
 after_script:
     docker-compose down
