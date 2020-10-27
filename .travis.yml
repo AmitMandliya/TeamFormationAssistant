@@ -12,4 +12,4 @@ script:
     - docker exec ml_server python -m pytest
 
 after_script:
-    docker-compose down
+    docker-compose down 
