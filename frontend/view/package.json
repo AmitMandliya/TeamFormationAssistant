@@ -23,7 +23,19 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4",
     "react-test-renderer": "^17.0.0",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "eslint": "6.6.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -31,7 +43,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test -u",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",    "fix:other": "npm run prettier --write",
+    "fix:code": "npm run test:code --fix",
+    "fix": "npm run fix:code && yarn fix:other",
+    "prettier": "prettier \"**/*.{js,json,md,scss,yaml,yml}\"",
+    "test:other": "npm run prettier --list-different",
+    "test:code": "eslint --ignore-path .gitignore --ignore-path .prettierignore --ext .js,.jsx ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -50,6 +67,17 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.5.0",
-    "gh-pages": "^3.1.0"
+    "gh-pages": "^3.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1"
   }
 }

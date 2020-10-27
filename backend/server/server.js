@@ -17,7 +17,7 @@ var con = mysql.createConnection({
   password: "dbuserpwd", // password
   database: "teamformationassistant" // database name
 });
- 
+
 // connect to the database.
 con.connect(function(err) {
   if (err) throw err;
@@ -87,7 +87,7 @@ app.post('/ProjectDetails',(req,res)=>{
 	//res.json('Form received...Thank You for signing up :D');
 	
     //execute the algorithm from here
-	fetch('http://localhost:5000/test');
+	fetch('http://localhost:5000/executeAlgo');
 	
 	return res.redirect('http://localhost:3000/TeamFormationAssistant/ProjectDetails/Success');
 })
