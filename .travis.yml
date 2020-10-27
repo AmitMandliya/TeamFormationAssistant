@@ -1,6 +1,5 @@
 language: python
 python: 
-    - "3.6"
     - "3.7"
 
 services:
@@ -8,7 +7,7 @@ services:
 
 before_install:
     - docker-compose up --build -d
-    
+
 script:
     - docker exec ml_server python -m pytest
 
